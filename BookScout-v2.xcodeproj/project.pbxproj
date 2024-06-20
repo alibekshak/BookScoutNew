@@ -10,6 +10,10 @@
 		1860CCF92C2421600046C194 /* BookScout_v2App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1860CCF82C2421600046C194 /* BookScout_v2App.swift */; };
 		1860CCFD2C2421630046C194 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1860CCFC2C2421630046C194 /* Assets.xcassets */; };
 		1860CD002C2421630046C194 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1860CCFF2C2421630046C194 /* Preview Assets.xcassets */; };
+		1860CD0D2C24245C0046C194 /* RoundedCorner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1860CD0C2C24245C0046C194 /* RoundedCorner.swift */; };
+		1860CD0F2C24247B0046C194 /* BookGenre.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1860CD0E2C24247B0046C194 /* BookGenre.swift */; };
+		1860CD112C2424930046C194 /* Tab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1860CD102C2424930046C194 /* Tab.swift */; };
+		1860CD132C2424B00046C194 /* CustomColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1860CD122C2424B00046C194 /* CustomColors.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -17,6 +21,10 @@
 		1860CCF82C2421600046C194 /* BookScout_v2App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookScout_v2App.swift; sourceTree = "<group>"; };
 		1860CCFC2C2421630046C194 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1860CCFF2C2421630046C194 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		1860CD0C2C24245C0046C194 /* RoundedCorner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedCorner.swift; sourceTree = "<group>"; };
+		1860CD0E2C24247B0046C194 /* BookGenre.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookGenre.swift; sourceTree = "<group>"; };
+		1860CD102C2424930046C194 /* Tab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tab.swift; sourceTree = "<group>"; };
+		1860CD122C2424B00046C194 /* CustomColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomColors.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +109,10 @@
 			isa = PBXGroup;
 			children = (
 				1860CCFC2C2421630046C194 /* Assets.xcassets */,
+				1860CD0C2C24245C0046C194 /* RoundedCorner.swift */,
+				1860CD0E2C24247B0046C194 /* BookGenre.swift */,
+				1860CD102C2424930046C194 /* Tab.swift */,
+				1860CD122C2424B00046C194 /* CustomColors.swift */,
 			);
 			path = "Auxiliary ";
 			sourceTree = "<group>";
@@ -182,7 +194,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1860CD0D2C24245C0046C194 /* RoundedCorner.swift in Sources */,
+				1860CD132C2424B00046C194 /* CustomColors.swift in Sources */,
+				1860CD0F2C24247B0046C194 /* BookGenre.swift in Sources */,
 				1860CCF92C2421600046C194 /* BookScout_v2App.swift in Sources */,
+				1860CD112C2424930046C194 /* Tab.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
