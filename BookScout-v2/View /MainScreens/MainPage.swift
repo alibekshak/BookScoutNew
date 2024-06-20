@@ -43,7 +43,7 @@ struct MainPage: View {
     var appTitle: some View {
         HStack {
             Text("BookScout")
-//                .font(Font.manropeExtraBold_36)
+                .font(Font.manropeExtraBold_36)
                 .foregroundColor(Color.black)
             Spacer()
             Button(action: {
