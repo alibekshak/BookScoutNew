@@ -21,9 +21,7 @@ struct CustomView: View {
                     } label: {
                         Image(systemName: tab.image)
                             .frame(maxWidth: .infinity)
-                            .font(
-                                Font.manropeBold_26
-                            )
+                            .font(Font.manropeBold_26)
                             .foregroundColor(
                                 selectedTab == tab ?
                                     .black : .black.opacity(0.4)

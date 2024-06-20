@@ -19,9 +19,7 @@ struct LaunchScreen: View {
                 Text("BookScout")
                     .font(Font.manropeBold_36)
                 Image(systemName: "book.closed")
-                    .font(
-                        Font.montserratSemiBold_90
-                    )
+                    .font(Font.montserratSemiBold_90)
                     .rotationEffect(.degrees(15), anchor: .center)
             }
             .foregroundColor(.black)
