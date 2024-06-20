@@ -14,6 +14,20 @@
 		1860CD0F2C24247B0046C194 /* BookGenre.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1860CD0E2C24247B0046C194 /* BookGenre.swift */; };
 		1860CD112C2424930046C194 /* Tab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1860CD102C2424930046C194 /* Tab.swift */; };
 		1860CD132C2424B00046C194 /* CustomColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1860CD122C2424B00046C194 /* CustomColors.swift */; };
+		1860CD152C24256F0046C194 /* ChatGPTAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1860CD142C24256F0046C194 /* ChatGPTAPI.swift */; };
+		1860CD172C24258E0046C194 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1860CD162C24258E0046C194 /* APIManager.swift */; };
+		1860CD192C2425AC0046C194 /* MessageRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1860CD182C2425AC0046C194 /* MessageRow.swift */; };
+		1860CD1B2C2425C50046C194 /* GPTModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1860CD1A2C2425C50046C194 /* GPTModels.swift */; };
+		1860CD1D2C2425E00046C194 /* FavoriteItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1860CD1C2C2425E00046C194 /* FavoriteItem.swift */; };
+		1860CD1F2C2425F70046C194 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1860CD1E2C2425F70046C194 /* Category.swift */; };
+		1860CD212C2426250046C194 /* ChatViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1860CD202C2426250046C194 /* ChatViewModel.swift */; };
+		1860CD232C24264C0046C194 /* ChatBlogsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1860CD222C24264C0046C194 /* ChatBlogsViewModel.swift */; };
+		1860CD252C2426660046C194 /* ChatCategoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1860CD242C2426650046C194 /* ChatCategoryViewModel.swift */; };
+		1860CD272C2426800046C194 /* ChatBookViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1860CD262C2426800046C194 /* ChatBookViewModel.swift */; };
+		1860CD292C2426930046C194 /* GenreSelectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1860CD282C2426930046C194 /* GenreSelectionViewModel.swift */; };
+		1860CD2B2C2426B40046C194 /* FavoritesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1860CD2A2C2426B40046C194 /* FavoritesViewModel.swift */; };
+		1860CD2D2C2426CF0046C194 /* CategoriesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1860CD2C2C2426CF0046C194 /* CategoriesViewModel.swift */; };
+		1860CD2F2C2426E80046C194 /* BaseChatViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1860CD2E2C2426E80046C194 /* BaseChatViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +39,20 @@
 		1860CD0E2C24247B0046C194 /* BookGenre.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookGenre.swift; sourceTree = "<group>"; };
 		1860CD102C2424930046C194 /* Tab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tab.swift; sourceTree = "<group>"; };
 		1860CD122C2424B00046C194 /* CustomColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomColors.swift; sourceTree = "<group>"; };
+		1860CD142C24256F0046C194 /* ChatGPTAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatGPTAPI.swift; sourceTree = "<group>"; };
+		1860CD162C24258E0046C194 /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
+		1860CD182C2425AC0046C194 /* MessageRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageRow.swift; sourceTree = "<group>"; };
+		1860CD1A2C2425C50046C194 /* GPTModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GPTModels.swift; sourceTree = "<group>"; };
+		1860CD1C2C2425E00046C194 /* FavoriteItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteItem.swift; sourceTree = "<group>"; };
+		1860CD1E2C2425F70046C194 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
+		1860CD202C2426250046C194 /* ChatViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewModel.swift; sourceTree = "<group>"; };
+		1860CD222C24264C0046C194 /* ChatBlogsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatBlogsViewModel.swift; sourceTree = "<group>"; };
+		1860CD242C2426650046C194 /* ChatCategoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatCategoryViewModel.swift; sourceTree = "<group>"; };
+		1860CD262C2426800046C194 /* ChatBookViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatBookViewModel.swift; sourceTree = "<group>"; };
+		1860CD282C2426930046C194 /* GenreSelectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenreSelectionViewModel.swift; sourceTree = "<group>"; };
+		1860CD2A2C2426B40046C194 /* FavoritesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewModel.swift; sourceTree = "<group>"; };
+		1860CD2C2C2426CF0046C194 /* CategoriesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesViewModel.swift; sourceTree = "<group>"; };
+		1860CD2E2C2426E80046C194 /* BaseChatViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseChatViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +115,14 @@
 		1860CD072C2422CE0046C194 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				1860CD202C2426250046C194 /* ChatViewModel.swift */,
+				1860CD222C24264C0046C194 /* ChatBlogsViewModel.swift */,
+				1860CD242C2426650046C194 /* ChatCategoryViewModel.swift */,
+				1860CD262C2426800046C194 /* ChatBookViewModel.swift */,
+				1860CD282C2426930046C194 /* GenreSelectionViewModel.swift */,
+				1860CD2A2C2426B40046C194 /* FavoritesViewModel.swift */,
+				1860CD2C2C2426CF0046C194 /* CategoriesViewModel.swift */,
+				1860CD2E2C2426E80046C194 /* BaseChatViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -94,6 +130,10 @@
 		1860CD082C2422E50046C194 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				1860CD182C2425AC0046C194 /* MessageRow.swift */,
+				1860CD1A2C2425C50046C194 /* GPTModels.swift */,
+				1860CD1C2C2425E00046C194 /* FavoriteItem.swift */,
+				1860CD1E2C2425F70046C194 /* Category.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -101,6 +141,8 @@
 		1860CD092C2422F90046C194 /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				1860CD142C24256F0046C194 /* ChatGPTAPI.swift */,
+				1860CD162C24258E0046C194 /* APIManager.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -194,11 +236,25 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1860CD192C2425AC0046C194 /* MessageRow.swift in Sources */,
+				1860CD152C24256F0046C194 /* ChatGPTAPI.swift in Sources */,
 				1860CD0D2C24245C0046C194 /* RoundedCorner.swift in Sources */,
+				1860CD232C24264C0046C194 /* ChatBlogsViewModel.swift in Sources */,
+				1860CD1B2C2425C50046C194 /* GPTModels.swift in Sources */,
 				1860CD132C2424B00046C194 /* CustomColors.swift in Sources */,
 				1860CD0F2C24247B0046C194 /* BookGenre.swift in Sources */,
+				1860CD2F2C2426E80046C194 /* BaseChatViewModel.swift in Sources */,
+				1860CD2B2C2426B40046C194 /* FavoritesViewModel.swift in Sources */,
+				1860CD272C2426800046C194 /* ChatBookViewModel.swift in Sources */,
+				1860CD1D2C2425E00046C194 /* FavoriteItem.swift in Sources */,
 				1860CCF92C2421600046C194 /* BookScout_v2App.swift in Sources */,
 				1860CD112C2424930046C194 /* Tab.swift in Sources */,
+				1860CD292C2426930046C194 /* GenreSelectionViewModel.swift in Sources */,
+				1860CD172C24258E0046C194 /* APIManager.swift in Sources */,
+				1860CD212C2426250046C194 /* ChatViewModel.swift in Sources */,
+				1860CD252C2426660046C194 /* ChatCategoryViewModel.swift in Sources */,
+				1860CD2D2C2426CF0046C194 /* CategoriesViewModel.swift in Sources */,
+				1860CD1F2C2425F70046C194 /* Category.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
