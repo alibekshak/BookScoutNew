@@ -31,7 +31,7 @@ struct ChatBlogsView: View {
             Spacer()
             Text("Blog")
                 .foregroundColor(.black)
-                .font(.system(size: 26, weight: .semibold))
+                .font(Font.montserratSemiBold_26)
             Spacer()
             buttonSheet
         }
@@ -72,13 +72,7 @@ struct ChatBlogsView: View {
         } label: {
             Image(systemName: "exclamationmark.octagon")
                 .foregroundColor(Color.black)
-                .font(
-                    .system(
-                        size: 26,
-                        weight: .semibold,
-                        design: .rounded
-                    )
-                )
+                .font(Font.montserratSemiBold_26)
         }
         .actionSheet(isPresented: $showingSheet) {
             ActionSheet(title: Text("Рекомендация"),

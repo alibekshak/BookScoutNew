@@ -29,11 +29,11 @@ struct CategoryView: View{
                 Color.white
                 VStack(alignment: .leading, spacing: 12) {
                     Text(title)
-                        .font(.title2)
+                        .font(Font.montserratSemiBold_22)
                         .fontWeight(.black)
                         .foregroundColor(.black)
                     Text(text)
-                        .font(.headline)
+                        .font(Font.montserratRegular_18)
                         .foregroundColor(.black.opacity(0.6))
                         .multilineTextAlignment(.leading)
                 }

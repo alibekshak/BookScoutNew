@@ -38,7 +38,7 @@ struct ChatBookView: View {
             Spacer()
             Text("Книги")
                 .foregroundColor(.black)
-                .font(.system(size: 26, weight: .semibold))
+                .font(Font.montserratSemiBold_26)
             Spacer()
         }
         .padding(.horizontal, 20)

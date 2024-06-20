@@ -22,11 +22,7 @@ struct CustomView: View {
                         Image(systemName: tab.image)
                             .frame(maxWidth: .infinity)
                             .font(
-                                .system(
-                                    size: 26,
-                                    weight: .bold,
-                                    design: .serif
-                                )
+                                Font.manropeBold_26
                             )
                             .foregroundColor(
                                 selectedTab == tab ?

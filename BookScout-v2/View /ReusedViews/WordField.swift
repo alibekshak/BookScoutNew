@@ -20,6 +20,7 @@ struct WordField: View {
             TextField(placeholder, text: $word)
                 .focused($isFocused)
                 .textFieldStyle(PlainTextFieldStyle())
+                .font(Font.montserratRegular_18)
         }
         .frame(maxWidth: .infinity)
         .padding(.vertical, 14)

@@ -43,7 +43,7 @@ struct MainPage: View {
     var appTitle: some View {
         HStack {
             Text("BookScout")
-//                .font(Font.manropeExtraBold_36)
+                .font(Font.manropeExtraBold_36)
                 .foregroundColor(Color.black)
             Spacer()
             Button(action: {
@@ -51,7 +51,7 @@ struct MainPage: View {
             }) {
                 Image(systemName: "bookmark")
                     .foregroundColor(.black)
-                    .font(.system(size: 32, weight: .semibold))
+                    .font(Font.montserratSemiBold_32)
             }
         }
         .padding(.top)
@@ -63,7 +63,7 @@ struct MainPage: View {
     var mainFanction: some View {
         VStack(alignment: . leading, spacing: 12) {
             Text("Жанры и темы")
-                .font(.system(size: 22, weight: .semibold))
+                .font(Font.montserratSemiBold_22)
                 .foregroundColor(Color.black)
             HStack {
                 fictionButton
@@ -147,7 +147,7 @@ struct MainPage: View {
     var blogsPart: some View {
         VStack(alignment: .leading, spacing: 12) {
             Text("Блог о книгах")
-                .font(.system(size: 22, weight: .semibold))
+                .font(Font.montserratSemiBold_22)
                 .foregroundColor(Color.black)
             blogButton1
             blogButton2

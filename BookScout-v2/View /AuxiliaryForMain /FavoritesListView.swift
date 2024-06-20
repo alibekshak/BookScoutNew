@@ -42,11 +42,11 @@ struct FavoritesListView: View {
                 isEditing.toggle()
             }, label: {
                 Image(systemName: isEditing ? "line.3.horizontal.decrease" : "line.horizontal.3")
-                    .font(.title2)
+                    .font(Font.montserratSemiBold_22)
             })
             Spacer()
             Text("Избранное")
-                .font(.title)
+                .font(Font.montserratSemiBold_20)
                 .foregroundColor(.black)
                 .padding(.leading)
             Spacer()

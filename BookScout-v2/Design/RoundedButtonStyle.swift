@@ -21,7 +21,7 @@ struct RoundedButtonStyle: ButtonStyle {
 
     public func makeBody(configuration: Self.Configuration) -> some View {
         configuration.label
-            .font(.system(size: 16, weight: .semibold))
+            .font(Font.montserratSemiBold_16)
             .padding(.vertical, 15)
             .padding(.horizontal, 16)
             .foregroundStyle(Color(.label))
