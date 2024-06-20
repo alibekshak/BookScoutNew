@@ -44,7 +44,7 @@ struct SameBookFiction: View {
             Spacer()
             Text("Введите данные:")
                 .foregroundColor(Color.black)
-                .font(.system(size: 24, weight: .semibold))
+                .font(Font.montserratSemiBold_24)
             Spacer()
         }
         .padding(.bottom, 30)
@@ -60,13 +60,14 @@ struct SameBookFiction: View {
     var textWarning: some View {
         Text("Иногда искусственный интеллект неправильно переводит книги на русский язык, поэтому рекомендуется использовать англоязычное название книги")
             .foregroundColor(Color.black.opacity(0.6))
-            .font(.system(size: 18))
+            .font(Font.montserratRegular_18)
+            .frame(maxWidth: .infinity, alignment: .leading)
     }
 }
 
 struct SameBookFiction_Previews: PreviewProvider {
     static var previews: some View {
-        SameBookFiction(chatBookViewModel: ChatBookViewModel(api: ChatGPTAPI(apiKey: "CATEGORY_VALUE")))
+        SameBookFiction(chatBookViewModel: ChatBookViewModel(api: APIManager.shared.api))
     }
 }
 

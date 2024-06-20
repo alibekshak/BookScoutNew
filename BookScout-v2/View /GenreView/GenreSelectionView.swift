@@ -69,7 +69,7 @@ struct GenreSelectionView: View {
                         )
                         .foregroundColor(.gray)
                     }
-                    .font(.system(size: 18, weight: .semibold))
+                    .font(Font.montserratSemiBold_18)
                     .padding(.vertical, 4)
                 }
             }

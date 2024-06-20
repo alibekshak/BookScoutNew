@@ -49,6 +49,10 @@ extension Font {
     }
     
     // MARK: MontserratBold
+    static var manropeBold_36: Font {
+        return .custom(.montserratBold, size: 34)
+    }
+    
     static var manropeBold_34: Font {
         return .custom(.montserratBold, size: 34)
     }
@@ -75,6 +79,19 @@ extension Font {
     
     
     // MARK: MontserratSemiBold
+    
+    static var montserratSemiBold_90: Font {
+        return .custom(.montserratSemiBold, size: 90)
+    }
+    
+    static var montserratSemiBold_42: Font {
+        return .custom(.montserratSemiBold, size: 42)
+    }
+    
+    static var montserratSemiBold_36: Font {
+        return .custom(.montserratSemiBold, size: 36)
+    }
+    
     static var montserratSemiBold_32: Font {
         return .custom(.montserratSemiBold, size: 32)
     }
@@ -120,36 +137,47 @@ extension Font {
     }
     
     // MARK: MontserratRegular
+    static var montserratRegular_30: Font {
+        return .custom(.montserratRegular, size: 30)
+    }
     
-    static var MontserratRegular_28: Font {
+    static var montserratRegular_28: Font {
         return .custom(.montserratRegular, size: 28)
     }
     
-    static var MontserratRegular_26: Font {
+    static var montserratRegular_26: Font {
         return .custom(.montserratRegular, size: 26)
     }
     
-    static var MontserratRegular_24: Font {
+    static var montserratRegular_24: Font {
         return .custom(.montserratRegular, size: 24)
     }
     
-    static var MontserratRegular_22: Font {
+    static var montserratRegular_22: Font {
         return .custom(.montserratRegular, size: 22)
     }
     
-    static var MontserratRegular_20: Font {
+    static var montserratRegular_20: Font {
         return .custom(.montserratRegular, size: 20)
     }
     
-    static var MontserratRegular_18: Font {
+    static var montserratRegular_18: Font {
         return .custom(.montserratRegular, size: 18)
     }
     
-    static var MontserratRegular_16: Font {
+    static var montserratRegular_16: Font {
         return .custom(.montserratRegular, size: 16)
     }
     
-    static var MontserratRegular_14: Font {
-        return .custom(.montserratRegular, size: 24)
+    static var montserratRegular_14: Font {
+        return .custom(.montserratRegular, size: 14)
+    }
+    
+    static var montserratRegular_10: Font {
+        return .custom(.montserratRegular, size: 10)
+    }
+    
+    static var montserratRegular_8: Font {
+        return .custom(.montserratRegular, size: 8)
     }
 }

@@ -17,13 +17,10 @@ struct LaunchScreen: View {
                 .ignoresSafeArea()
             VStack(spacing: 16) {
                 Text("BookScout")
-                    .font(.system(size: 38, weight: .semibold))
+                    .font(Font.manropeBold_36)
                 Image(systemName: "book.closed")
                     .font(
-                        .system(
-                            size: 100,
-                            weight: .semibold
-                        )
+                        Font.montserratSemiBold_90
                     )
                     .rotationEffect(.degrees(15), anchor: .center)
             }

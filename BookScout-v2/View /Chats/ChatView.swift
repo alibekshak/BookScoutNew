@@ -33,7 +33,7 @@ struct ChatView: View {
             Spacer()
             Text("Чат AI")
                 .foregroundColor(.black)
-                .font(.system(size: 26, weight: .semibold))
+                .font(Font.montserratSemiBold_26)
                 .padding(.leading)
             Spacer()
             refreshButton
@@ -91,7 +91,7 @@ struct ChatView: View {
         } label: {
             Image(systemName: "paperplane.circle.fill")
                 .rotationEffect(.degrees(45))
-                .font(.system(size: 30))
+                .font(Font.montserratRegular_30)
         }
         .buttonStyle(.borderless)
         .foregroundColor(.accentColor)
@@ -103,6 +103,7 @@ struct ChatView: View {
             .textFieldStyle(.roundedBorder)
             .focused($isTextFieldFocused)
             .disabled(chatViewModel.isInteractingWithChatGPT)
+            .font(Font.montserratRegular_18)
     }
     
     var refreshButton: some View {
@@ -110,13 +111,7 @@ struct ChatView: View {
             chatViewModel.refreshChat()
         }) {
             Image(systemName: "arrow.clockwise")  .foregroundColor(.black)
-                .font(
-                    .system(
-                        size: 24,
-                        weight: .semibold,
-                        design: .serif
-                    )
-                )
+                .font(Font.montserratSemiBold_24)
                 .opacity(chatViewModel.isInteractingWithChatGPT ? 0 : 1)
         }
     }

@@ -46,6 +46,7 @@ struct MessageRowView: View {
         .padding(.horizontal, 20)
         .frame(maxWidth: .infinity, alignment: .leading)
         .background(bgColor)
+        .font(Font.montserratRegular_16)
     }
 }
 

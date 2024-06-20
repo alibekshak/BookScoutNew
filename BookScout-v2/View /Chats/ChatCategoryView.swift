@@ -40,7 +40,7 @@ struct ChatCategoryView: View {
             Spacer()
             Text(title)
                 .foregroundColor(.black)
-                .font(.system(size: 26, weight: .semibold))
+                .font(Font.montserratSemiBold_26)
                 .padding(.trailing)
             Spacer()
         }

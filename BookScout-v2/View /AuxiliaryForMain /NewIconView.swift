@@ -25,31 +25,25 @@ struct NewIconView: View {
             if viewState == .standard {
                 VStack(spacing: 14) {
                     Image(systemName: image)
-                        .font(.system(size: 36,
-                                      weight: .semibold,
-                                      design: .rounded)
+                        .font(
+                            Font.montserratSemiBold_36
                         )
                     Text(title)
-                        .font(.system(size: 16,
-                                      weight: .semibold,
-                                      design: .monospaced
-                                     )
+                        .font(
+                            Font.montserratSemiBold_16
                         )
                         .multilineTextAlignment(.center)
                 }
             } else {
                 HStack(alignment: .center, spacing: 16) {
                     Image(systemName: image)
-                        .font(.system(size: 36,
-                                      weight: .semibold,
-                                      design: .rounded
-                                     )
+                        .font(
+                            Font.montserratSemiBold_36
                         )
                         .padding(.leading)
                     Text(title)
-                        .font(.system(size: 18,
-                                      weight: .semibold,
-                                      design: .monospaced)
+                        .font(
+                            Font.montserratSemiBold_18
                         )
                         .frame(maxWidth: .infinity)
                 }

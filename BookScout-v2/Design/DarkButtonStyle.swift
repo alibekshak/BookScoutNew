@@ -30,7 +30,7 @@ struct DarkButtonStyle: ButtonStyle {
     
     public func makeBody(configuration: Self.Configuration) -> some View {
         configuration.label
-            .font(.system(size: 18, weight: .semibold))
+            .font(Font.montserratSemiBold_18)
             .padding(padding)
             .background(backgroundColor)
             .foregroundStyle(textColor)

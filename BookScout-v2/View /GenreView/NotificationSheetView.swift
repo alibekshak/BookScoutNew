@@ -42,16 +42,12 @@ struct NotificationSheetView: View {
     var mainInfo: some View {
         VStack(spacing: 12) {
             Image(systemName: "books.vertical.circle")
-                .font(.system(
-                    size: 42,
-                    weight: .semibold,
-                    design: .rounded)
+                .font(
+                    Font.montserratSemiBold_42
                 )
             Text("Изменения добавлены")
-                .font(.system(
-                    size: 22,
-                    weight: .semibold,
-                    design: .serif)
+                .font(
+                    Font.montserratSemiBold_22
                 )
         }
         .foregroundColor(.white)
