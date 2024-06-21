@@ -11,6 +11,7 @@ import SwiftUI
 class ChatViewModel: BaseChatViewModel {
     
     @Published var inputMessage: String = ""
+    @Published var isTabViewMainМisible: Bool = false
     
     init(api: ChatGPTAPI, enableSpeech: Bool = false) {
         super.init(api: api)

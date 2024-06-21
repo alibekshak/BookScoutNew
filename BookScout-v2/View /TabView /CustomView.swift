@@ -11,32 +11,36 @@ struct CustomView: View {
     
     @Binding var selectedTab: Tab
     
+    @StateObject var chatViewModel: ChatViewModel
+    
     var body: some View {
         VStack(spacing: .zero) {
-            Divider()
-            HStack {
-                ForEach(Tab.allCases) { tab in
-                    Button {
-                        selectedTab = tab
-                    } label: {
-                        Image(systemName: tab.image)
-                            .frame(maxWidth: .infinity)
-                            .font(Font.manropeBold_26)
-                            .foregroundColor(
-                                selectedTab == tab ?
-                                    .black : .black.opacity(0.4)
-                            )
-                            .scaleEffect(selectedTab == tab ? 1 : 0.92)
+            if !chatViewModel.isTabViewMainМisible {
+                Divider()
+                HStack {
+                    ForEach(Tab.allCases) { tab in
+                        Button {
+                            selectedTab = tab
+                        } label: {
+                            Image(systemName: tab.image)
+                                .frame(maxWidth: .infinity)
+                                .font(Font.manropeBold_26)
+                                .foregroundColor(
+                                    selectedTab == tab ?
+                                        .black : .black.opacity(0.4)
+                                )
+                                .scaleEffect(selectedTab == tab ? 1 : 0.92)
+                        }
                     }
                 }
+                .padding(.horizontal)
+                .padding(.top, 8)
             }
-            .padding(.horizontal)
-            .padding(.top, 8)
         }
         .background(CustomColors.backgroundColor)
     }
 }
 
 #Preview {
-    CustomView(selectedTab: .constant(.chat))
+    CustomView(selectedTab: .constant(.chat), chatViewModel: ChatViewModel(api: APIManager.shared.api))
 }

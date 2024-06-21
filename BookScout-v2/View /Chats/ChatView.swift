@@ -23,9 +23,6 @@ struct ChatView: View {
             }
         }
         .navigationBarBackButtonHidden(true)
-        .onAppear {
-            isTextFieldFocused = true
-        }
     }
     
     var navigationBar: some View {
@@ -65,9 +62,9 @@ struct ChatView: View {
                     }
                 }
             }
-            .onTapGesture {
-                isTextFieldFocused = false
-            }
+        }
+        .onTapGesture {
+            isTextFieldFocused = false
         }
     }
     
@@ -104,6 +101,13 @@ struct ChatView: View {
             .focused($isTextFieldFocused)
             .disabled(chatViewModel.isInteractingWithChatGPT)
             .font(Font.montserratRegular_18)
+            .onChange(of: isTextFieldFocused) { newValue in
+                if newValue == true {
+                    chatViewModel.isTabViewMainМisible = true
+                } else {
+                    chatViewModel.isTabViewMainМisible = false
+                }
+            }
     }
     
     var refreshButton: some View {

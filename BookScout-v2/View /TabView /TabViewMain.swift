@@ -25,7 +25,7 @@ struct TabViewMain: View {
                 case .genre:
                     GenreSelectionView(viewModel: appState, states: .genreTab)
                 }
-                CustomView(selectedTab: $selectedTab)
+                CustomView(selectedTab: $selectedTab, chatViewModel: chatViewModel)
             }
         }
     }
