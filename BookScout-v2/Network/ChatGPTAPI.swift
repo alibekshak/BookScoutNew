@@ -8,7 +8,7 @@
 import Foundation
 import Combine
 
-class ChatGPTAPI: @unchecked Sendable {
+class ChatGPTAPI: ObservableObject {
     
     private let systemMessage: Message
     private let temperature: Double
@@ -55,30 +55,49 @@ class ChatGPTAPI: @unchecked Sendable {
         self.historyList.append(.init(role: "assistant", content: responseText))
     }
     
+    private func handleHTTPResponse(_ response: URLResponse) throws {
+        guard let httpResponse = response as? HTTPURLResponse else {
+            throw "Invalid response"
+        }
+        
+        guard 200...299 ~= httpResponse.statusCode else {
+            throw "Bad Response: \(httpResponse.statusCode)"
+        }
+    }
+    
+    private func handleError(_ result: URLSession.AsyncBytes, httpResponse: HTTPURLResponse) async throws -> String {
+        var errorText = ""
+        for try await line in result.lines {
+            errorText += line
+        }
+
+        if let data = errorText.data(using: .utf8), let errorResponse = try? jsonDecoder.decode(ErrorRootResponse.self, from: data).error {
+            errorText = "\n\(errorResponse.message)"
+        }
+
+        throw "Bad Response: \(httpResponse.statusCode), \(errorText)"
+    }
+    
+    private func sendRequest(_ urlRequest: URLRequest) async throws -> (Data, URLResponse) {
+        let (data, response) = try await urlSession.data(for: urlRequest)
+        try handleHTTPResponse(response)
+        return (data, response)
+    }
+    
     // Функцию sendMessageStream отправляет асинхронный запрос на сервер API
     func sendMessageStream(text: String) async throws -> AsyncThrowingStream<String, Error> {
         let body = try jsonBody(text: text)
         switch requestBuilder.buildChatCompletionRequest(body: body) {
         case .success(let urlRequest):
             let (result, response) = try await urlSession.bytes(for: urlRequest)
-            
             guard let httpResponse = response as? HTTPURLResponse else {
                 throw "Invalid response"
             }
             
-            guard 200...299 ~= httpResponse.statusCode else {
-                var errorText = ""
-                for try await line in result.lines {
-                    errorText += line
-                }
-                
-                if let data = errorText.data(using: .utf8), let errorResponse = try? jsonDecoder.decode(ErrorRootResponse.self, from: data).error {
-                    errorText = "\n\(errorResponse.message)"
-                }
-                
-                throw "Bad Response: \(httpResponse.statusCode), \(errorText)"
+            if !(200...299 ~= httpResponse.statusCode) {
+                try await handleError(result, httpResponse: httpResponse)
             }
-            
+
             return AsyncThrowingStream<String, Error> { continuation in
                 Task(priority: .userInitiated) { [weak self] in
                     guard let self = self else { return }
@@ -109,20 +128,7 @@ class ChatGPTAPI: @unchecked Sendable {
         let body = try jsonBody(text: text, stream: false)
         switch requestBuilder.buildChatCompletionRequest(body: body) {
         case .success(let urlRequest):
-            let (data, response) = try await urlSession.data(for: urlRequest)
-            
-            guard let httpResponse = response as? HTTPURLResponse else {
-                throw "Invalid response"
-            }
-            
-            guard 200...299 ~= httpResponse.statusCode else {
-                var error = "Bad Response: \(httpResponse.statusCode)"
-                if let errorResponse = try? jsonDecoder.decode(ErrorRootResponse.self, from: data).error {
-                    error.append("\n\(errorResponse.message)")
-                }
-                throw error
-            }
-            
+            let (data, response) = try await sendRequest(urlRequest)
             let completionResponse = try self.jsonDecoder.decode(CompletionResponse.self, from: data)
             let responseText = completionResponse.choices.first?.message.content ?? ""
             self.appendToHistoryList(userText: text, responseText: responseText)
