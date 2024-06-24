@@ -61,6 +61,7 @@
 		1860CD752C2431530046C194 /* Montserrat-SemiBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1860CD732C2431530046C194 /* Montserrat-SemiBoldItalic.ttf */; };
 		1860CD772C24315E0046C194 /* Montserrat-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1860CD762C24315E0046C194 /* Montserrat-Regular.ttf */; };
 		1860CD7A2C2431BE0046C194 /* FontExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1860CD792C2431BE0046C194 /* FontExtension.swift */; };
+		1860CD7C2C292E910046C194 /* URLRequestBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1860CD7B2C292E910046C194 /* URLRequestBuilder.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -120,6 +121,7 @@
 		1860CD762C24315E0046C194 /* Montserrat-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Regular.ttf"; sourceTree = "<group>"; };
 		1860CD782C24317A0046C194 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		1860CD792C2431BE0046C194 /* FontExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontExtension.swift; sourceTree = "<group>"; };
+		1860CD7B2C292E910046C194 /* URLRequestBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLRequestBuilder.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -218,6 +220,7 @@
 			children = (
 				1860CD142C24256F0046C194 /* ChatGPTAPI.swift */,
 				1860CD162C24258E0046C194 /* APIManager.swift */,
+				1860CD7B2C292E910046C194 /* URLRequestBuilder.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -443,6 +446,7 @@
 				1860CD112C2424930046C194 /* Tab.swift in Sources */,
 				1860CD3E2C2428AE0046C194 /* ChatBlogsView.swift in Sources */,
 				1860CD4E2C2429E50046C194 /* XmarkButton.swift in Sources */,
+				1860CD7C2C292E910046C194 /* URLRequestBuilder.swift in Sources */,
 				1860CD292C2426930046C194 /* GenreSelectionViewModel.swift in Sources */,
 				1860CD172C24258E0046C194 /* APIManager.swift in Sources */,
 				1860CD312C2427A70046C194 /* DarkButtonStyle.swift in Sources */,

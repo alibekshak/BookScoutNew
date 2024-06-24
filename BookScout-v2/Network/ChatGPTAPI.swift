@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Combine
 
 class ChatGPTAPI: @unchecked Sendable {
     
@@ -14,22 +15,10 @@ class ChatGPTAPI: @unchecked Sendable {
     private let model: String
     
     private let apiKey: String
-    private var historyList = [Message]()
+    @Published private(set) var historyList = [Message]()
     private let urlSession = URLSession.shared
-    private var urlRequest: URLRequest {
-        let url = URL(string: "https://api.openai.com/v1/chat/completions")!
-        var urlRequest = URLRequest(url: url)
-        urlRequest.httpMethod = "POST"
-        headers.forEach {  urlRequest.setValue($1, forHTTPHeaderField: $0) }
-        return urlRequest
-    }
-    
-    let dateFormatter: DateFormatter = {
-        let df = DateFormatter()
-        df.dateFormat = "YYYY-MM-dd"
-        return df
-    }()
-    
+    private var cancellables = Set<AnyCancellable>()
+    private let requestBuilder: URLRequestBuilder
     
     private let jsonDecoder: JSONDecoder = {
         let jsonDecoder = JSONDecoder()
@@ -37,20 +26,12 @@ class ChatGPTAPI: @unchecked Sendable {
         return jsonDecoder
     }()
     
-    
-    private var headers: [String: String] {
-        [
-            "Content-Type": "application/json",
-            "Authorization": "Bearer \(apiKey)"
-        ]
-    }
-    
-    
     init(apiKey: String, model: String = "gpt-3.5-turbo", systemPrompt: String = "Мне нужны рецензии на книги в жанре художественной литературы так же в жанре нон-фикшн. Со следующими правилами: Обязательно укажи название книги на русском и английском. Дай рецензию на книгу в двух предложениях. Выборка книг по самы известным, интерестным, недооцененых. Ты никогда не советуешь одни и те же книги, предлагаешь только новые. Не придумываешь книги. Предлагаешь книги которые существуют. В однои предложеннии расказываешь про автора книги. Стилистика рецензии в форме эссе с доминирующим личным мнением, в котором ты высказывает свое отношение к книге. Отвечаешь на русском языке.", temperature: Double = 0.3) {
         self.apiKey = apiKey
         self.model = model
         self.systemMessage = .init(role: "system", content: systemPrompt)
         self.temperature = temperature
+        self.requestBuilder = URLRequestBuilder(apiKey: apiKey)
     }
     
     private func generateMessages(from text: String) -> [Message] {
@@ -76,75 +57,77 @@ class ChatGPTAPI: @unchecked Sendable {
     
     // Функцию sendMessageStream отправляет асинхронный запрос на сервер API
     func sendMessageStream(text: String) async throws -> AsyncThrowingStream<String, Error> {
-        var urlRequest = self.urlRequest
-        urlRequest.httpBody = try jsonBody(text: text)
-        
-        let (result, response) = try await urlSession.bytes(for: urlRequest)
-        
-        guard let httpResponse = response as? HTTPURLResponse else {
-            throw "Invalid response"
-        }
-        
-        guard 200...299 ~= httpResponse.statusCode else {
-            var errorText = ""
-            for try await line in result.lines {
-                errorText += line
+        let body = try jsonBody(text: text)
+        switch requestBuilder.buildChatCompletionRequest(body: body) {
+        case .success(let urlRequest):
+            let (result, response) = try await urlSession.bytes(for: urlRequest)
+            
+            guard let httpResponse = response as? HTTPURLResponse else {
+                throw "Invalid response"
             }
             
-            if let data = errorText.data(using: .utf8), let errorResponse = try? jsonDecoder.decode(ErrorRootResponse.self, from: data).error {
-                errorText = "\n\(errorResponse.message)"
+            guard 200...299 ~= httpResponse.statusCode else {
+                var errorText = ""
+                for try await line in result.lines {
+                    errorText += line
+                }
+                
+                if let data = errorText.data(using: .utf8), let errorResponse = try? jsonDecoder.decode(ErrorRootResponse.self, from: data).error {
+                    errorText = "\n\(errorResponse.message)"
+                }
+                
+                throw "Bad Response: \(httpResponse.statusCode), \(errorText)"
             }
             
-            throw "Bad Response: \(httpResponse.statusCode), \(errorText)"
-        }
-        
-        return AsyncThrowingStream<String, Error> { continuation in
-            Task(priority: .userInitiated) { [weak self] in
-                guard let self else { return }
-                do {
-                    var responseText = ""
-                    for try await line in result.lines {
-                        if line.hasPrefix("data: "),
-                           let data = line.dropFirst(6).data(using: .utf8),
-                           let response = try? self.jsonDecoder.decode(StreamCompletionResponse.self, from: data),
-                           let text = response.choices.first?.delta.content {
-                            responseText += text
-                            continuation.yield(text)
+            return AsyncThrowingStream<String, Error> { continuation in
+                Task(priority: .userInitiated) { [weak self] in
+                    guard let self = self else { return }
+                    do {
+                        var responseText = ""
+                        for try await line in result.lines {
+                            if line.hasPrefix("data: "),
+                               let data = line.dropFirst(6).data(using: .utf8),
+                               let response = try? self.jsonDecoder.decode(StreamCompletionResponse.self, from: data),
+                               let text = response.choices.first?.delta.content {
+                                responseText += text
+                                continuation.yield(text)
+                            }
                         }
+                        self.appendToHistoryList(userText: text, responseText: responseText)
+                        continuation.finish()
+                    } catch {
+                        continuation.finish(throwing: error)
                     }
-                    self.appendToHistoryList(userText: text, responseText: responseText)
-                    continuation.finish()
-                } catch {
-                    continuation.finish(throwing: error)
                 }
             }
+        case .failure(let error):
+            throw error
         }
     }
 
     func sendMessage(_ text: String) async throws -> String {
-        var urlRequest = self.urlRequest
-        urlRequest.httpBody = try jsonBody(text: text, stream: false)
-        
-        let (data, response) = try await urlSession.data(for: urlRequest)
-        
-        guard let httpResponse = response as? HTTPURLResponse else {
-            throw "Invalid response"
-        }
-        
-        guard 200...299 ~= httpResponse.statusCode else {
-            var error = "Bad Response: \(httpResponse.statusCode)"
-            if let errorResponse = try? jsonDecoder.decode(ErrorRootResponse.self, from: data).error {
-                error.append("\n\(errorResponse.message)")
+        let body = try jsonBody(text: text, stream: false)
+        switch requestBuilder.buildChatCompletionRequest(body: body) {
+        case .success(let urlRequest):
+            let (data, response) = try await urlSession.data(for: urlRequest)
+            
+            guard let httpResponse = response as? HTTPURLResponse else {
+                throw "Invalid response"
             }
-            throw error
-        }
-        
-        do {
+            
+            guard 200...299 ~= httpResponse.statusCode else {
+                var error = "Bad Response: \(httpResponse.statusCode)"
+                if let errorResponse = try? jsonDecoder.decode(ErrorRootResponse.self, from: data).error {
+                    error.append("\n\(errorResponse.message)")
+                }
+                throw error
+            }
+            
             let completionResponse = try self.jsonDecoder.decode(CompletionResponse.self, from: data)
             let responseText = completionResponse.choices.first?.message.content ?? ""
             self.appendToHistoryList(userText: text, responseText: responseText)
             return responseText
-        } catch {
+        case .failure(let error):
             throw error
         }
     }
