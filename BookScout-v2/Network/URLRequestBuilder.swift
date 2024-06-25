@@ -12,8 +12,8 @@ struct URLRequestBuilder {
     
     private var defaultHeaders: [String: String] {
         [
-            "Content-Type": "application/json",
-            "Authorization": "Bearer \(apiKey)"
+            APIConstants.Headers.contentType: APIConstants.Headers.jsonContentType,
+             APIConstants.Headers.authorization: "Bearer \(apiKey)"
         ]
     }
     
@@ -35,7 +35,7 @@ struct URLRequestBuilder {
     }
     
     func buildChatCompletionRequest(body: Data?) -> Result<URLRequest, URLRequestBuilderError> {
-        guard let url = URL(string: "https://api.openai.com/v1/chat/completions") else {
+        guard let url = URL(string: APIConstants.chatCompletionURL) else {
             return .failure(.invalidURL)
         }
         return buildRequest(url: url, method: .post, headers: defaultHeaders, body: body)
