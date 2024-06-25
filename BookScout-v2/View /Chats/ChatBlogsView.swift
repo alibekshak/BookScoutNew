@@ -52,7 +52,7 @@ struct ChatBlogsView: View {
     
     var message: some View {
         ScrollView {
-            LazyVStack(spacing: .zero) {
+            VStack(spacing: .zero) {
                 ForEach(chatBlogsViewModel.messages) { message in
                     MessageRowView(message: message) { message in
                         Task { @MainActor in

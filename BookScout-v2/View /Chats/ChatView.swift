@@ -53,7 +53,7 @@ struct ChatView: View {
     
     var messages: some View {
         ScrollView {
-            LazyVStack(spacing: 0) {
+            VStack(spacing: .zero) {
                 ForEach(chatViewModel.messages) { message in
                     MessageRowView(message: message) { message in
                         Task { @MainActor in

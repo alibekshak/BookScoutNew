@@ -52,7 +52,7 @@ struct ChatCategoryView: View {
         ScrollViewReader { proxy in
             VStack(spacing: .zero) {
                 ScrollView {
-                    LazyVStack(spacing: 4) {
+                    VStack(spacing: .zero) {
                         ForEach(chatCategoryViewModel.messages) { message in
                             MessageRowView(message: message) { message in
                                 Task { @MainActor in

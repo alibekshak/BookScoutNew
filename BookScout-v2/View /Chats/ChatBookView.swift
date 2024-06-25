@@ -48,7 +48,7 @@ struct ChatBookView: View {
     var chatListView: some View {
         ScrollViewReader { proxy in
             ScrollView {
-                LazyVStack(spacing: 0) {
+                VStack(spacing: .zero) {
                     ForEach(chatBookViewModel.messages) { message in
                         MessageRowView(message: message) { message in
                             Task { @MainActor in
