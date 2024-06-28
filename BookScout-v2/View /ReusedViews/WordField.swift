@@ -17,10 +17,16 @@ struct WordField: View {
     
     var body: some View {
         ZStack(alignment: .leading) {
-            TextField(placeholder, text: $word)
+            TextField("", text: $word)
+                .textFieldStyle(.plain)
                 .focused($isFocused)
                 .textFieldStyle(PlainTextFieldStyle())
                 .font(Font.montserratRegular_18)
+                .foregroundColor(.black)
+                .placeholder(when: word.isEmpty) {
+                    Text(placeholder)
+                        .foregroundColor(.gray)
+            }
         }
         .frame(maxWidth: .infinity)
         .padding(.vertical, 14)
@@ -32,3 +38,15 @@ struct WordField: View {
     }
 }
 
+extension View {
+    func placeholder<Content: View>(
+        when shouldShow: Bool,
+        alignment: Alignment = .leading,
+        @ViewBuilder placeholder: () -> Content) -> some View {
+
+        ZStack(alignment: alignment) {
+            placeholder().opacity(shouldShow ? 1 : 0)
+            self
+        }
+    }
+}
