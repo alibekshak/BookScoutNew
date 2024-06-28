@@ -12,6 +12,7 @@ struct FavoritesListView: View {
     @StateObject var viewModel: FavoritesViewModel
     
     @Environment(\.dismiss) var dismiss
+    @Environment(\.colorScheme) var colorScheme
     
     @State private var isEditing = false
     
@@ -27,7 +28,8 @@ struct FavoritesListView: View {
                     .onDelete(perform: viewModel.deleteFavoriteItem)
                     .onMove(perform: viewModel.moveFavoriteItem)
                 }
-                .background(CustomColors.backgroundColor)
+                .foregroundColor(colorScheme == .dark ? .white : .black)
+                .background(colorScheme == .dark ? CustomColors.backgroundColor : .white)
                 .environment(\.editMode, isEditing ? .constant(.active) : .constant(.inactive))
             }
         }
