@@ -24,12 +24,12 @@ struct FavoritesListView: View {
                 List {
                     ForEach(viewModel.favoriteItems) { item in
                         Text(item.title)
+                            .foregroundColor(.black)
+                            .listRowBackground(colorScheme == .dark ? CustomColors.backgroundColor : .white)
                     }
                     .onDelete(perform: viewModel.deleteFavoriteItem)
                     .onMove(perform: viewModel.moveFavoriteItem)
                 }
-                .foregroundColor(colorScheme == .dark ? .white : .black)
-                .background(colorScheme == .dark ? CustomColors.backgroundColor : .white)
                 .environment(\.editMode, isEditing ? .constant(.active) : .constant(.inactive))
             }
         }

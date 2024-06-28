@@ -97,10 +97,14 @@ struct ChatView: View {
     
     var textField: some View {
         TextField("Отправить сообщение", text: $chatViewModel.inputMessage, axis: .vertical)
-            .textFieldStyle(.roundedBorder)
+            .textFieldStyle(.plain)
+            .padding(6)
             .focused($isTextFieldFocused)
             .disabled(chatViewModel.isInteractingWithChatGPT)
             .font(Font.montserratRegular_18)
+            .background(.white)
+            .foregroundColor(.black)
+            .cornerRadius(8)
             .onChange(of: isTextFieldFocused) { newValue in
                 if newValue == true {
                     chatViewModel.isTabViewMainМisible = true
