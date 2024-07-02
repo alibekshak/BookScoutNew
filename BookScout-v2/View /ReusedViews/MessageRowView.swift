@@ -16,14 +16,19 @@ struct MessageRowView: View {
     
     var body: some View {
         VStack(spacing: 8) {
-            if let text = message.responseText {
-                messageRowContent(text: text, bgColor:  CustomColors.backgroundColor, responseError: message.responseError, showDotLoading: message.isInteractingWithChatGPT)
+            if message.isInteractingWithChatGPT {
+                DotLoadingView()
+                    .frame(width: 60, height: 30)
+            } else {
+                if let text = message.responseText {
+                    messageRowContent(text: text, bgColor:  CustomColors.backgroundColor, responseError: message.responseError)
+                }
+                Divider()
             }
-            Divider()
         }
     }
     
-    func messageRowContent(text: String, bgColor: Color, responseError: String? = nil, showDotLoading: Bool = false) -> some View {
+    func messageRowContent(text: String, bgColor: Color, responseError: String? = nil) -> some View {
         VStack(alignment: .leading) {
             Text(text)
                 .multilineTextAlignment(.leading)
@@ -37,10 +42,6 @@ struct MessageRowView: View {
                 }
                 .foregroundColor(.accentColor)
                 .padding(.top)
-            }
-            if showDotLoading {
-                DotLoadingView()
-                    .frame(width: 60, height: 30)
             }
         }
         .padding(.horizontal, 20)
