@@ -10,11 +10,8 @@ import SwiftUI
 
 public enum Fonts: String {
     case montserratBold = "Montserrat-Bold"
-    case montserratBoldItalic = "Montserrat-BoldItalic"
     case montserratExtraBold = "Montserrat-ExtraBold"
-    case montserratExtraBoldItalic = "Montserrat-ExtraBoldItalic"
     case montserratSemiBold = "Montserrat-SemiBold"
-    case montserratSemiBoldItalic = "Montserrat-SemiBoldItalic"
     case montserratRegular = "Montserrat-Regular"
 }
 

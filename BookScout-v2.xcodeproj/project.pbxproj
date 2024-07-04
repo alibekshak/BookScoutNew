@@ -54,11 +54,8 @@
 		1860CD662C242BE60046C194 /* TabViewMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1860CD652C242BE60046C194 /* TabViewMain.swift */; };
 		1860CD682C242C0D0046C194 /* CustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1860CD672C242C0D0046C194 /* CustomView.swift */; };
 		1860CD6C2C2431390046C194 /* Montserrat-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1860CD6A2C2431390046C194 /* Montserrat-Bold.ttf */; };
-		1860CD6D2C2431390046C194 /* Montserrat-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1860CD6B2C2431390046C194 /* Montserrat-BoldItalic.ttf */; };
 		1860CD702C2431450046C194 /* Montserrat-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1860CD6E2C2431450046C194 /* Montserrat-ExtraBold.ttf */; };
-		1860CD712C2431450046C194 /* Montserrat-ExtraBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1860CD6F2C2431450046C194 /* Montserrat-ExtraBoldItalic.ttf */; };
 		1860CD742C2431530046C194 /* Montserrat-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1860CD722C2431530046C194 /* Montserrat-SemiBold.ttf */; };
-		1860CD752C2431530046C194 /* Montserrat-SemiBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1860CD732C2431530046C194 /* Montserrat-SemiBoldItalic.ttf */; };
 		1860CD772C24315E0046C194 /* Montserrat-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1860CD762C24315E0046C194 /* Montserrat-Regular.ttf */; };
 		1860CD7A2C2431BE0046C194 /* FontExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1860CD792C2431BE0046C194 /* FontExtension.swift */; };
 		1860CD7C2C292E910046C194 /* URLRequestBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1860CD7B2C292E910046C194 /* URLRequestBuilder.swift */; };
@@ -114,11 +111,8 @@
 		1860CD652C242BE60046C194 /* TabViewMain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabViewMain.swift; sourceTree = "<group>"; };
 		1860CD672C242C0D0046C194 /* CustomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomView.swift; sourceTree = "<group>"; };
 		1860CD6A2C2431390046C194 /* Montserrat-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Bold.ttf"; sourceTree = "<group>"; };
-		1860CD6B2C2431390046C194 /* Montserrat-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-BoldItalic.ttf"; sourceTree = "<group>"; };
 		1860CD6E2C2431450046C194 /* Montserrat-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-ExtraBold.ttf"; sourceTree = "<group>"; };
-		1860CD6F2C2431450046C194 /* Montserrat-ExtraBoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-ExtraBoldItalic.ttf"; sourceTree = "<group>"; };
 		1860CD722C2431530046C194 /* Montserrat-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-SemiBold.ttf"; sourceTree = "<group>"; };
-		1860CD732C2431530046C194 /* Montserrat-SemiBoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-SemiBoldItalic.ttf"; sourceTree = "<group>"; };
 		1860CD762C24315E0046C194 /* Montserrat-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Regular.ttf"; sourceTree = "<group>"; };
 		1860CD782C24317A0046C194 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		1860CD792C2431BE0046C194 /* FontExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontExtension.swift; sourceTree = "<group>"; };
@@ -327,11 +321,8 @@
 			isa = PBXGroup;
 			children = (
 				1860CD6A2C2431390046C194 /* Montserrat-Bold.ttf */,
-				1860CD6B2C2431390046C194 /* Montserrat-BoldItalic.ttf */,
 				1860CD6E2C2431450046C194 /* Montserrat-ExtraBold.ttf */,
-				1860CD6F2C2431450046C194 /* Montserrat-ExtraBoldItalic.ttf */,
 				1860CD722C2431530046C194 /* Montserrat-SemiBold.ttf */,
-				1860CD732C2431530046C194 /* Montserrat-SemiBoldItalic.ttf */,
 				1860CD762C24315E0046C194 /* Montserrat-Regular.ttf */,
 			);
 			path = Fonts;
@@ -397,11 +388,8 @@
 			files = (
 				1860CD772C24315E0046C194 /* Montserrat-Regular.ttf in Resources */,
 				1860CD702C2431450046C194 /* Montserrat-ExtraBold.ttf in Resources */,
-				1860CD6D2C2431390046C194 /* Montserrat-BoldItalic.ttf in Resources */,
-				1860CD752C2431530046C194 /* Montserrat-SemiBoldItalic.ttf in Resources */,
 				1860CD002C2421630046C194 /* Preview Assets.xcassets in Resources */,
 				1860CD742C2431530046C194 /* Montserrat-SemiBold.ttf in Resources */,
-				1860CD712C2431450046C194 /* Montserrat-ExtraBoldItalic.ttf in Resources */,
 				1860CCFD2C2421630046C194 /* Assets.xcassets in Resources */,
 				1860CD6C2C2431390046C194 /* Montserrat-Bold.ttf in Resources */,
 			);
