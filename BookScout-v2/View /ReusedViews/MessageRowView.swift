@@ -15,16 +15,15 @@ struct MessageRowView: View {
     let retryCallback: (MessageRow) -> Void
     
     var body: some View {
-        VStack(spacing: 8) {
-            if message.isInteractingWithChatGPT {
-                DotLoadingView()
-                    .frame(width: 60, height: 30)
-            } else {
-                if let text = message.responseText {
-                    messageRowContent(text: text, bgColor:  CustomColors.backgroundColor, responseError: message.responseError)
-                }
-                Divider()
+        VStack(alignment: .leading, spacing: 8) {
+            if let text = message.responseText {
+                messageRowContent(
+                    text: text,
+                    bgColor:  CustomColors.backgroundColor,
+                    responseError: message.responseError
+                )
             }
+            Divider()
         }
     }
     
