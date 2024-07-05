@@ -25,7 +25,7 @@ struct ChatCategoryView: View {
             VStack(spacing: .zero) {
                 navigationBar
                 Divider()
-                chatListView
+                chatList
             }
         }
         .navigationBarBackButtonHidden(true)
@@ -48,26 +48,34 @@ struct ChatCategoryView: View {
         .padding(.bottom, 22)
     }
     
-    var chatListView: some View {
+    var chatList: some View {
         ScrollViewReader { proxy in
             VStack(spacing: .zero) {
                 ScrollView {
-                    VStack(spacing: .zero) {
-                        ForEach(chatCategoryViewModel.messages) { message in
-                            MessageRowView(message: message) { message in
-                                Task { @MainActor in
-                                    await chatCategoryViewModel.retry(message: message)
-                                }
-                            }
-                        }
-                    }
-                    .onTapGesture {
-                        isTextFieldFocused = false
-                    }
+                    chatCategoryViewModel.isInteractingWithChatGPT ? AnyView(
+                        LoaderView()
+                            .padding(.top, 300)
+                    ) : AnyView(mainText)
                 }
                 bottomView(proxy: proxy)
             }
-            .onChange(of: chatCategoryViewModel.messages.last?.responseText) { _ in scrollToBottom(proxy: proxy) }
+            .onChange(of: chatCategoryViewModel.messages.last?.responseText) { _ in scrollToBottom(proxy: proxy)
+            }
+        }
+    }
+    
+    var mainText: some View {
+        VStack(spacing: .zero) {
+            ForEach(chatCategoryViewModel.messages) { message in
+                MessageRowView(message: message) { message in
+                    Task { @MainActor in
+                        await chatCategoryViewModel.retry(message: message)
+                    }
+                }
+            }
+        }
+        .onTapGesture {
+            isTextFieldFocused = false
         }
     }
     
