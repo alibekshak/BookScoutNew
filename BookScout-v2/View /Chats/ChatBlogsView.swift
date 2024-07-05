@@ -42,7 +42,10 @@ struct ChatBlogsView: View {
     var chatListView: some View {
         ScrollViewReader { proxy in
             VStack(spacing: .zero) {
-                message
+                ScrollView {
+                    chatBlogsViewModel.isInteractingWithChatGPT ? 
+                    AnyView(loadingView) : AnyView(message)
+                }
             }
             .onChange(of: chatBlogsViewModel.messages.last?.responseText) { _ in
                 scrollToBottom(proxy: proxy)
@@ -50,14 +53,18 @@ struct ChatBlogsView: View {
         }
     }
     
+    var loadingView: some View {
+        LoaderView()
+            .padding(.top, 300)
+    }
+    
+    @ViewBuilder
     var message: some View {
-        ScrollView {
-            VStack(spacing: .zero) {
-                ForEach(chatBlogsViewModel.messages) { message in
-                    MessageRowView(message: message) { message in
-                        Task { @MainActor in
-                            await chatBlogsViewModel.retry(message: message)
-                        }
+        VStack(spacing: .zero) {
+            ForEach(chatBlogsViewModel.messages) { message in
+                MessageRowView(message: message) { message in
+                    Task { @MainActor in
+                        await chatBlogsViewModel.retry(message: message)
                     }
                 }
             }

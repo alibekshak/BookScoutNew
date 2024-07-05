@@ -52,16 +52,19 @@ struct ChatCategoryView: View {
         ScrollViewReader { proxy in
             VStack(spacing: .zero) {
                 ScrollView {
-                    chatCategoryViewModel.isInteractingWithChatGPT ? AnyView(
-                        LoaderView()
-                            .padding(.top, 300)
-                    ) : AnyView(mainText)
+                    chatCategoryViewModel.isInteractingWithChatGPT ?
+                    AnyView(loadingView) : AnyView(mainText)
                 }
                 bottomView(proxy: proxy)
             }
             .onChange(of: chatCategoryViewModel.messages.last?.responseText) { _ in scrollToBottom(proxy: proxy)
             }
         }
+    }
+    
+    var loadingView: some View {
+        LoaderView()
+            .padding(.top, 300)
     }
     
     var mainText: some View {

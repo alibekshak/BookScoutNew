@@ -47,25 +47,35 @@ struct ChatBookView: View {
     
     var chatListView: some View {
         ScrollViewReader { proxy in
-            ScrollView {
-                VStack(spacing: .zero) {
-                    ForEach(chatBookViewModel.messages) { message in
-                        MessageRowView(message: message) { message in
-                            Task { @MainActor in
-                                await chatBookViewModel.retry(message: message)
-                            }
-                        }
+            VStack(spacing: .zero) {
+                ScrollView {
+                    chatBookViewModel.isInteractingWithChatGPT ? AnyView(loadingView) : AnyView(message)
+                }
+                bottomView(proxy: proxy)
+            }
+            .onChange(of: chatBookViewModel.messages.last?.responseText) { _ in scrollToBottom(proxy: proxy)
+            }
+        }
+    }
+    
+    var loadingView: some View {
+        LoaderView()
+            .padding(.top, 300)
+    }
+    
+    var message: some View {
+        VStack(spacing: .zero) {
+            ForEach(chatBookViewModel.messages) { message in
+                MessageRowView(message: message) { message in
+                    Task { @MainActor in
+                        await chatBookViewModel.retry(message: message)
                     }
                 }
-                .onTapGesture {
-                    isTextFieldFocused = false
-                }
             }
-            bottomView(proxy: proxy)
-                .onChange(of: chatBookViewModel.messages.last?.responseText) { _ in scrollToBottom(proxy: proxy)
-                }
         }
-        
+        .onTapGesture {
+            isTextFieldFocused = false
+        }
     }
     
     func bottomView(proxy: ScrollViewProxy) -> some View {
