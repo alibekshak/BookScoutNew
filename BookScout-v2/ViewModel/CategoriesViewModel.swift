@@ -14,7 +14,7 @@ enum CategoryName {
 
 class CategoriesViewModel: ObservableObject {
     
-    @Published var categoryName: CategoryName
+    var categoryName: CategoryName
     
     var categoriess: [Category] {
         switch categoryName {
