@@ -267,9 +267,7 @@
 			isa = PBXGroup;
 			children = (
 				1860CD592C242AED0046C194 /* MainPage.swift */,
-				1860CD5B2C242B0E0046C194 /* SameBookFiction.swift */,
-				1860CD5D2C242B380046C194 /* SelectAuthorFiction.swift */,
-				1860CD5F2C242B840046C194 /* CategoriesView.swift */,
+				18AFCF152C3CEDD000AC412C /* PagesMainFunctions */,
 			);
 			path = MainScreens;
 			sourceTree = "<group>";
@@ -326,6 +324,16 @@
 				1860CD762C24315E0046C194 /* Montserrat-Regular.ttf */,
 			);
 			path = Fonts;
+			sourceTree = "<group>";
+		};
+		18AFCF152C3CEDD000AC412C /* PagesMainFunctions */ = {
+			isa = PBXGroup;
+			children = (
+				1860CD5B2C242B0E0046C194 /* SameBookFiction.swift */,
+				1860CD5D2C242B380046C194 /* SelectAuthorFiction.swift */,
+				1860CD5F2C242B840046C194 /* CategoriesView.swift */,
+			);
+			path = PagesMainFunctions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
