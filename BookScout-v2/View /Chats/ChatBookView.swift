@@ -103,7 +103,11 @@ struct ChatBookView: View {
                 .font(.title)
         }
         .alert(isPresented: $addToFavoritesTapped) {
-            Alert(title: Text("Избранное"), message: Text("Текст добавлен в избранное"), dismissButton: .default(Text("Ок")))
+            Alert(
+                title: Text("Избранное"),
+                message: Text("Текст добавлен в избранное"),
+                dismissButton: .default(Text("Ок"))
+            )
         }
     }
     
@@ -118,9 +122,11 @@ struct ChatBookView: View {
                 .font(.title)
         }
         .actionSheet(isPresented: $showingSheet) {
-            ActionSheet(title: Text("Рекомендация"),
-                        message: Text("Иногда искусственный интеллект неправильно переводит книги на русский язык, поэтому рекомендуется использовать англоязычное название книги"),
-                        buttons: [.default(Text("Ок"))])
+            ActionSheet(
+                title: Text("Рекомендация"),
+                message: Text("Иногда искусственный интеллект неправильно переводит книги на русский язык, поэтому рекомендуется использовать англоязычное название книги"),
+                buttons: [.default(Text("Ок"))]
+            )
         }
     }
     

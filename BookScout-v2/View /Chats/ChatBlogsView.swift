@@ -82,9 +82,11 @@ struct ChatBlogsView: View {
                 .font(Font.montserratSemiBold_26)
         }
         .actionSheet(isPresented: $showingSheet) {
-            ActionSheet(title: Text("Рекомендация"),
-                        message: Text("Иногда искусственный интеллект неправильно переводит книги на русский язык, поэтому рекомендуется использовать англоязычное название книги"),
-                        buttons: [.default(Text("Ок"))])
+            ActionSheet(
+                title: Text("Рекомендация"),
+                message: Text("Иногда искусственный интеллект неправильно переводит книги на русский язык, поэтому рекомендуется использовать англоязычное название книги"),
+                buttons: [.default(Text("Ок"))]
+            )
         }
     }
     

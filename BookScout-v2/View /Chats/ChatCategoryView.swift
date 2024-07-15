@@ -131,7 +131,11 @@ struct ChatCategoryView: View {
                 .font(.title)
         }
         .alert(isPresented: $addToFavoritesTapped) {
-            Alert(title: Text("Избранное"), message: Text("Текст добавлен в избранное"), dismissButton: .default(Text("Ок")))
+            Alert(
+                title: Text("Избранное"),
+                message: Text("Текст добавлен в избранное"),
+                dismissButton: .default(Text("Ок"))
+            )
         }
     }
     
@@ -146,9 +150,11 @@ struct ChatCategoryView: View {
                 .font(.title)
         }
         .actionSheet(isPresented: $showingSheet) {
-            ActionSheet(title: Text("Пожалуйста, обратите внимание"),
-                        message: Text("Искусственного интеллекта может допускать ошибки в распознавании и упоминании названий книг или имен авторов"),
-                        buttons: [.default(Text("Ок"))])
+            ActionSheet(
+                title:Text("Пожалуйста, обратите внимание"),
+                message: Text("Искусственного интеллекта может допускать ошибки в распознавании и упоминании названий книг или имен авторов"),
+                buttons: [.default(Text("Ок"))]
+            )
         }
     }
     
