@@ -42,12 +42,21 @@ struct ChatView: View {
     var chatListView: some View {
         ScrollViewReader { proxy in
             VStack(spacing: .zero) {
-                messages
+                chatViewModel.isInteractingWithChatGPT ?
+                AnyView(loadingView) : AnyView(messages)
                 bottomView(proxy: proxy)
             }
             .onChange(of: chatViewModel.messages.last?.responseText) { _ in
                 scrollToBottom(proxy: proxy)
             }
+        }
+    }
+    
+    var loadingView: some View {
+        VStack(alignment: .center) {
+            Spacer()
+            LoaderView()
+            Spacer()
         }
     }
     
@@ -105,6 +114,7 @@ struct ChatView: View {
             .background(.white)
             .foregroundColor(.black)
             .cornerRadius(8)
+            .padding(.bottom, 6)
             .onChange(of: isTextFieldFocused) { newValue in
                 if newValue == true {
                     chatViewModel.isTabViewMainМisible = true
