@@ -35,7 +35,6 @@
 		1860CD402C2428CD0046C194 /* ChatBookView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1860CD3F2C2428CD0046C194 /* ChatBookView.swift */; };
 		1860CD422C2428F30046C194 /* ChatCategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1860CD412C2428F30046C194 /* ChatCategoryView.swift */; };
 		1860CD442C2429270046C194 /* MessageRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1860CD432C2429270046C194 /* MessageRowView.swift */; };
-		1860CD462C2429550046C194 /* DotLoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1860CD452C2429550046C194 /* DotLoadingView.swift */; };
 		1860CD482C2429780046C194 /* ButtonFind.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1860CD472C2429780046C194 /* ButtonFind.swift */; };
 		1860CD4A2C2429920046C194 /* WordField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1860CD492C2429920046C194 /* WordField.swift */; };
 		1860CD4C2C2429C30046C194 /* ChevronView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1860CD4B2C2429C30046C194 /* ChevronView.swift */; };
@@ -92,7 +91,6 @@
 		1860CD3F2C2428CD0046C194 /* ChatBookView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatBookView.swift; sourceTree = "<group>"; };
 		1860CD412C2428F30046C194 /* ChatCategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatCategoryView.swift; sourceTree = "<group>"; };
 		1860CD432C2429270046C194 /* MessageRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageRowView.swift; sourceTree = "<group>"; };
-		1860CD452C2429550046C194 /* DotLoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DotLoadingView.swift; sourceTree = "<group>"; };
 		1860CD472C2429780046C194 /* ButtonFind.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonFind.swift; sourceTree = "<group>"; };
 		1860CD492C2429920046C194 /* WordField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordField.swift; sourceTree = "<group>"; };
 		1860CD4B2C2429C30046C194 /* ChevronView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChevronView.swift; sourceTree = "<group>"; };
@@ -296,7 +294,6 @@
 			isa = PBXGroup;
 			children = (
 				1860CD432C2429270046C194 /* MessageRowView.swift */,
-				1860CD452C2429550046C194 /* DotLoadingView.swift */,
 				1860CD472C2429780046C194 /* ButtonFind.swift */,
 				1860CD492C2429920046C194 /* WordField.swift */,
 				1860CD4B2C2429C30046C194 /* ChevronView.swift */,
@@ -440,7 +437,6 @@
 				1860CD272C2426800046C194 /* ChatBookViewModel.swift in Sources */,
 				1860CD4C2C2429C30046C194 /* ChevronView.swift in Sources */,
 				1860CD1D2C2425E00046C194 /* FavoriteItem.swift in Sources */,
-				1860CD462C2429550046C194 /* DotLoadingView.swift in Sources */,
 				1860CD5E2C242B380046C194 /* SelectAuthorFiction.swift in Sources */,
 				1860CCF92C2421600046C194 /* BookScout_v2App.swift in Sources */,
 				1860CD112C2424930046C194 /* Tab.swift in Sources */,
