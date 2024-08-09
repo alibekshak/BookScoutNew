@@ -225,7 +225,6 @@
 			children = (
 				1860CD692C2430CA0046C194 /* Fonts */,
 				1860CCFC2C2421630046C194 /* Assets.xcassets */,
-				1860CD0C2C24245C0046C194 /* RoundedCorner.swift */,
 				1860CD0E2C24247B0046C194 /* BookGenre.swift */,
 				1860CD102C2424930046C194 /* Tab.swift */,
 				1860CD122C2424B00046C194 /* CustomColors.swift */,
@@ -237,6 +236,7 @@
 		1860CD0B2C2423250046C194 /* Design */ = {
 			isa = PBXGroup;
 			children = (
+				1860CD0C2C24245C0046C194 /* RoundedCorner.swift */,
 				1860CD302C2427A70046C194 /* DarkButtonStyle.swift */,
 				1860CD322C2427C60046C194 /* RoundedButtonStyle.swift */,
 			);

@@ -12,8 +12,8 @@ struct URLRequestBuilder {
     
     private var defaultHeaders: [String: String] {
         [
-            APIConstants.Headers.contentType: APIConstants.Headers.jsonContentType,
-             APIConstants.Headers.authorization: "Bearer \(apiKey)"
+            APIConstants.Headers.contentType : APIConstants.Headers.jsonContentType,
+             APIConstants.Headers.authorization : "Bearer \(apiKey)"
         ]
     }
     

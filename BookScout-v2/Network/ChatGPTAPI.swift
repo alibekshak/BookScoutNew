@@ -10,14 +10,15 @@ import Combine
 
 class ChatGPTAPI: ObservableObject {
     
+    @Published private(set) var historyList = [Message]()
+    
     private let systemMessage: Message
     private let temperature: Double
     private let model: String
     
     private let apiKey: String
-    @Published private(set) var historyList = [Message]()
+  
     private let urlSession = URLSession.shared
-    private var cancellables = Set<AnyCancellable>()
     private let requestBuilder: URLRequestBuilder
     
     private let jsonDecoder: JSONDecoder = {
@@ -94,10 +95,6 @@ class ChatGPTAPI: ObservableObject {
                 throw "Invalid response"
             }
             
-            if !(200...299 ~= httpResponse.statusCode) {
-                try await handleError(result, httpResponse: httpResponse)
-            }
-
             return AsyncThrowingStream<String, Error> { continuation in
                 Task(priority: .userInitiated) { [weak self] in
                     guard let self = self else { return }
@@ -128,7 +125,7 @@ class ChatGPTAPI: ObservableObject {
         let body = try jsonBody(text: text, stream: false)
         switch requestBuilder.buildChatCompletionRequest(body: body) {
         case .success(let urlRequest):
-            let (data, response) = try await sendRequest(urlRequest)
+            let (data, _) = try await sendRequest(urlRequest)
             let completionResponse = try self.jsonDecoder.decode(CompletionResponse.self, from: data)
             let responseText = completionResponse.choices.first?.message.content ?? ""
             self.appendToHistoryList(userText: text, responseText: responseText)
