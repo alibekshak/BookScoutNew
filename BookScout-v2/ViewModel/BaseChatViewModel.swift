@@ -53,18 +53,14 @@ class BaseChatViewModel: ObservableObject {
         let favoriteItem = FavoriteItem(title: text)
         favoritesViewModel.addToFavorites(item: favoriteItem)
 
-        // Save the updated favoriteItems array to UserDefaults
-        let encoder = JSONEncoder()
-        if let encodedData = try? encoder.encode(favoritesViewModel.favoriteItems) {
+        if let encodedData = try?  JSONEncoder().encode(favoritesViewModel.favoriteItems) {
             userDefaults.set(encodedData, forKey: userDefaultsKey)
         }
     }
 
     func loadFavorites() {
-        // Load favorites from UserDefaults
-        let decoder = JSONDecoder()
         if let data = userDefaults.data(forKey: userDefaultsKey),
-           let decodedData = try? decoder.decode([FavoriteItem].self, from: data) {
+           let decodedData = try? JSONDecoder().decode([FavoriteItem].self, from: data) {
             favoritesViewModel.favoriteItems = decodedData
         }
     }

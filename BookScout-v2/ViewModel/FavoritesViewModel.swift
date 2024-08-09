@@ -8,11 +8,12 @@
 import Foundation
 
 class FavoritesViewModel: ObservableObject {
+    
+    @Published var favoriteItems: [FavoriteItem] = []
+    
     private let userDefaultsKey = "FavoriteItems"
     
     static let shared = FavoritesViewModel()
-
-    @Published var favoriteItems: [FavoriteItem] = []
 
     init() {
             self.favoriteItems = loadFavoriteItems()
@@ -43,7 +44,7 @@ class FavoritesViewModel: ObservableObject {
     }
     
     func refreshFavoriteItems() {
-        DispatchQueue.main.asyncAfter(deadline: .now()) {
+        DispatchQueue.main.async {
             self.favoriteItems = self.loadFavoriteItems()
         }
     }

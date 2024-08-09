@@ -8,11 +8,11 @@
 import Foundation
 
 class GenreSelectionViewModel: ObservableObject {
+    
     @Published var selectedGenres: [BookGenre] = []
     @Published var originalGenres: [BookGenre] = []
     @Published var userDefaultsEmpty: Bool = false
     
-
     init() {
         loadGenresFromUserDefaults()
         userDefaultsEmpty = isUserDefaultsEmpty()
