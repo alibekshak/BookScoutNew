@@ -22,8 +22,8 @@ struct MessageRowView: View {
                     bgColor:  CustomColors.backgroundColor,
                     responseError: message.responseError
                 )
+                Divider()
             }
-            Divider()
         }
     }
     

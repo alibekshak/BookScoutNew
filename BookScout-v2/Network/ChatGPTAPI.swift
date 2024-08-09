@@ -95,6 +95,10 @@ class ChatGPTAPI: ObservableObject {
                 throw "Invalid response"
             }
             
+            if !(200...299 ~= httpResponse.statusCode) {
+                try await handleError(result, httpResponse: httpResponse)
+            }
+            
             return AsyncThrowingStream<String, Error> { continuation in
                 Task(priority: .userInitiated) { [weak self] in
                     guard let self = self else { return }

@@ -54,10 +54,9 @@ struct ChatView: View {
     
     var loadingView: some View {
         VStack(alignment: .center) {
-            Spacer()
             LoaderView()
-            Spacer()
         }
+        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
     }
     
     var messages: some View {
